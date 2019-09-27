@@ -1,0 +1,194 @@
+%TeXのテンプレです。必要に応じて、コメントアウトを解除して利用してください。
+%デフォルトでは卒修論で使いやすいようにしているつもりです。
+%よくわからないときは、とりあえず怪しい部分をコメントアウトする。
+%それでもわからないときは、google大先生に聞いてみる。
+
+
+%==================================================
+%ドキュメントクラスの選択
+%下からどれかを選ぶ！
+%\documentclass{jsarticle}%ゼミの資料はこれが良い。ただし、chapterが使えない。
+\documentclass[11pt,a4j,report]{jsbook}%卒論修論はこれ
+%\documentclass[10pt,a4j]{jreport}%これを使うのもあり
+
+
+%==================================================
+%文字関係
+%--------------------------------------------------
+%数学関係の記号等
+\usepackage{amsmath}%数式を使うならまずこれ!
+\usepackage{amssymb}%特殊な記号を使いたいならとりあえずこれ!
+%\usepackage{mathrsfs}%カッコいい花文字を使うときはこれ!
+%\usepackage{mathabx}%小文字の筆記体を使うときはこれ!(予め、パッケージをダウンロードすること。)
+
+%--------------------------------------------------
+%定義、定理等(どれかを使うと便利)
+\usepackage{amsthm}
+  \newtheorem{theorem}{Theorem}[section]
+  \newtheorem{definition}[theorem]{Definition}
+  \newtheorem{lemma}[theorem]{Lemma}
+  \newtheorem{corollary}[theorem]{Corollary}
+  \newtheorem{proposition}[theorem]{Proposition}
+
+%英語表記
+%\usepackage{theorem}
+  %\theoremstyle{break}
+  %\newtheorem{theorem}{Theorem}[chapter]
+  %\newtheorem{definition}[theorem]{Definition}
+  %\newtheorem{proposition}[theorem]{Proposition}
+
+%日本語表記
+%\usepackage{theorem}
+  %\theoremstyle{break}
+  %\newtheorem{definition}{定義}
+  %\newtheorem{proposition}{補題}
+  %\newtheorem{theorem}{定理}
+
+
+%==================================================
+%体裁関係
+%--------------------------------------------------
+%余白(卒論修論は以下の値をそのまま使う。)
+\usepackage[top=35truemm, bottom=30truemm, left=30truemm, right=30truemm]{geometry}
+%補足:　下の余白については2cmと指定があるが、ページ番号までが余白と考えて、3cmに設定している
+
+%--------------------------------------------------
+%段組み(必要なら・・・)
+%\usepackage{multicol}
+
+%--------------------------------------------------
+%図、グラフ
+\usepackage[dvips,dvipdfmx]{graphicx}
+%\usepackage{wrapfig}%これを使えば、図の周りに文字を回り込ませることができる。
+%横向きを使うときは下も使う
+%\usepackage{lscape}
+
+%--------------------------------------------------
+%柄つきの枠（要らない!?）
+%\usepackage{fancybox}
+
+%--------------------------------------------------
+%しおり、リンク等
+%(pdfファイルにしおりや内部リンクを自動生成させます。コンパイルできない時などは消してください。)
+% 以下のタイトルや著者は書き換えてください
+\usepackage[dvipdfmx]{hyperref}
+
+\hypersetup{%
+ bookmarksnumbered=true,%
+ colorlinks=false,%
+ setpagesize=false,%
+ pdftitle={LaTeX研修課程},%
+ pdfauthor={ななしのごんべぇ},%
+ pdfsubject={hyperref入門・演習},%
+ pdfkeywords={TeX; dvipdfmx; hyperref; color;}
+}
+
+
+%--------------------------------------------------
+%引用上付き
+%\makeatletter
+%\DeclareRobustCommand\cite{\unskip
+%\@ifnextchar[{\@tempswatrue\@citex}{\@tempswafalse\@citex[]}}
+%\def\@cite#1#2{$^{\hbox{\scriptsize[{#1\if@tempswa , #2\fi}]}}$}
+%\def\@biblabel#1{[#1]}
+%\makeatother
+
+%==================================================
+%自分で定義した文字、記号やラベル名の変更関係
+%--------------------------------------------------
+%証明終了記号(定理環境のproof)を使えば、自動で白抜きの四角(これ→□)が出ます)
+%\newcommand{\qed}{\hfill(Q.E.D)\hspace*{6ex}\par}
+
+%--------------------------------------------------
+%単位行列
+\newcommand{\1}{\mbox{1}\hspace{-0.25em}\mbox{l}}%個人的(←誰?)にはこっちが好き
+%↓の2行を使えば1の太字ができる。
+%\usepackage{dsfont}
+%\newcommand{\1}{\mathds{1}}
+
+%--------------------------------------------------
+%\appendixをAppendixで表記(解除すると警告が出ます。)
+%\renewcommand{\appendixname}{Appendix\hspace{1ex}}
+
+%--------------------------------------------------
+%参考文献をReferenceで表記
+%\renewcommand{\bibname}{References}
+
+
+%##################################################
+%##################################################
+%##################################################
+%ここから本体
+
+\title{Title}
+\author{Name}
+%\date{}
+
+%==================================================
+\begin{document}
+%--------------------------------------------------
+%表紙とページ番号の指定
+  \setcounter{page}{0}%これはあまり意味がない(笑)
+  \maketitle
+
+%表紙の裏は空白するので空のページを挿入(表紙は別刷りにすることから)
+　　\thispagestyle{empty}
+  \newpage
+
+%--------------------------------------------------
+%目次作成
+  \setcounter{page}{1}
+  \pagenumbering{roman}
+  \setcounter{tocdepth}{2}
+  \tableofcontents
+
+%--------------------------------------------------
+%目次までと本体とページ番号の書体を変更する。
+  \newpage
+  \setcounter{page}{1}
+  \pagenumbering{arabic}
+
+%--------------------------------------------------
+%TODO:この下に本文の内容を出来るだけ沢山書く。
+	\part{HOGEHOGE}%普通「第○部」は使わないので消すこと。
+		\chapter{ホゲホゲ}
+			\section{hogehoge}
+				\subsection{ほげほげ}
+					\subsubsection{HogeHoge}%これより下のレベルは目次に表示されない。
+
+
+
+
+
+%--------------------------------------------------
+%付録
+	\newpage
+	\appendix
+	\chapter{私は付録です。}
+
+%--------------------------------------------------
+%謝辞
+  \newpage  %本文との境目に空白のページを入れたい。
+　　\thispagestyle{empty}
+  \newpage
+	\section*{謝辞}%謝辞のタイトルはsectionレベルで表示したいが↓
+	  \addcontentsline{toc}{chapter}{謝辞}%目次にはchapterレベルで表示したい。
+	%謝辞の例
+	%卒業論文or修士学位論文の作成にあたり、様々な助言を頂いた研究室の皆様に深くお礼申し上げます。その中でも特に、研究内容について細部にいたるまでご指導を頂いたホゲホゲ教授に心より感謝致します。
+	%
+	%また、日常の生活面で大きな支えとなった家族に感謝の意を表します。
+
+%--------------------------------------------------
+%参考文献
+\begin{thebibliography}{99}
+  \bibitem{reference01}Name1: ``title1'', {\em Jurnal Name}, Vol. 00, pp. 00-00 (2000)
+  \bibitem{reference02}Name2: ``title2'', {\em Jurnal Name}, Vol. 00, pp. 00-00 (2000)
+  %以下同様に（bibtex使うなら消すこと。）
+\end{thebibliography}
+
+
+%bibtexを使う場合
+%\bibliographystyle{jplain} %jplain,junsrtなど指定できるスタイルはいろいろある。
+%\bibliography{hoge(bibのファイル名を書く。.bibは不要)}
+
+\end{document}
